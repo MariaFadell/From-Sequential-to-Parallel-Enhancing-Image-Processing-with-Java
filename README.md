@@ -17,13 +17,14 @@ This application uses:
 
 ## 🗂️ Project Structure and File Explanation
 
-| File | Description |
-|------|-------------|
-| `ImageFilterUI.java` | **Main GUI class.** Entry point of the application. Lets the user choose sample images, select filters, apply them using sequential or parallel modes, and save results. |
-| `Sequential.java` | Contains logic to apply a 2D convolution filter sequentially over an image using nested loops. |
-| `Parallel.java` | Contains optimized parallel implementation using Java's **ForkJoinPool** to apply the same convolution in a multi-threaded manner. |
-| `Samples/` | Folder containing all **10 sample images**. These are loaded from disk and used in processing. |
-| `ImageFilterTest.java` | Unit test class (using **JUnit 5**) to verify that sequential and parallel output images are of the correct dimensions and type. |
+| File                      | Description                                                                                                                                                                                   |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ImageFilterUI.java`      | **Main GUI class.** Entry point of the application. Allows users to choose sample images, select filters, adjust intensity, process them using sequential or parallel mode, and save results. |
+| `Sequential.java`         | Implements **sequential image filtering** using 2D convolution on each pixel. Used for baseline comparisons and benchmarking.                                                                 |
+| `Parallel.java`           | Implements **parallel image filtering** using Java's `ForkJoinPool`. It splits image columns and processes them concurrently for better performance on multi-core systems.                    |
+| `ImageUtils.java`         | Contains **helper utility functions** for working with images. Can be used for shared image operations, though it's minimal in this project.                                                  |
+| `ImageProcessorTest.java` | **JUnit 5 test class** that validates processing logic by comparing output image dimensions and types for both sequential and parallel methods.                                               |
+| `Samples/`                | Directory containing **10 preloaded images** used for testing the filtering functionality.                                                                                                    |
 
 ---
 
